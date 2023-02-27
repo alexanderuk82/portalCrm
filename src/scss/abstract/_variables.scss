@@ -1,0 +1,27 @@
+:root {
+    //General colours
+
+    --body: hsl(240, 7%, 97%);
+    --main: hsl(248, 93%, 62%);
+    --secondary: hsl(149, 50%, 53%);
+    --textHeading: hsl(220, 6%, 18%);
+    --textBody: hsl(214, 5%, 30%);
+
+    --error: hsl(4, 66%, 44%);
+    --shadow: 0px 5px 30px 1px hsla(248, 93%, 62%, 0.04);
+
+    //Main-font
+    --font: 'DM Sans', sans-serif;
+}
+
+$fontSize: (
+    'base': 1.5rem,
+    'menuLinks': 1.87rem, 
+);
+
+$fontWeight: (
+    'regular': 400,
+    'semibold': 500,
+    'bold': 700,
+   
+);

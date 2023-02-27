@@ -1,0 +1,54 @@
+@use '../abstract/variables' as *;
+
+@mixin font-style(
+    $size: (
+        inherit,
+    ),
+    $weight,
+    $color: (
+        inherit,
+    ),
+    $transform: lowercase
+) {
+    font-size: map-get($fontSize, #{$size});
+    font-weight: map-get($fontWeight, #{$weight});
+    color: var(--#{$color});
+    text-transform: $transform;
+}
+
+@mixin position($style, $content, $align, $direction, $height: (initial)) {
+    height: #{$height};
+    display: $style;
+    justify-content: $content;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == 'phone-land' {
+        @media (min-width: 31.25rem) {
+            @content;
+        }
+    }
+    @if $breakpoint == 'tablet' {
+        @media (min-width: 45.625rem) {
+            @content;
+        }
+    }
+    @if $breakpoint == 'tablet-land' {
+        @media (min-width: 56.25rem) {
+            @content;
+        }
+    }
+    @if $breakpoint == 'desktop' {
+        @media (min-width: 75rem) {
+            @content;
+        }
+    }
+}
+
+@mixin menuSide {
+    .menuside {
+        background-color: red;
+    }
+}

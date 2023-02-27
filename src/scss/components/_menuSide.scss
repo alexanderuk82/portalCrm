@@ -1,0 +1,22 @@
+@use '../abstract/' as *;
+
+.menuSide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(0, 0%, 12%, 0.404);
+
+    &__menuSection {
+        background-color: var(--main);
+        height: inherit;
+        width: 60%;
+        position: inherit;
+        right: 0;
+        box-shadow: -10px 0px 26px 1px rgba(43, 23, 167, 0.32);
+        color: var(--body);
+        @include font-style(menuLinks, semibold, body, capitalize);
+        @include position(flex, center, center, column, 100);
+    }
+}
