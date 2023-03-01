@@ -10,18 +10,55 @@
     --error: hsl(4, 66%, 44%);
     --shadow: 0px 5px 30px 1px hsla(248, 93%, 62%, 0.04);
 
+    --highlight: hsl(149deg 100% 74%);
+
     //Main-font
     --font: 'DM Sans', sans-serif;
 }
 
 $fontSize: (
     'base': 1.5rem,
-    'menuLinks': 1.87rem, 
+    'menuLinks': 1.87rem,
 );
 
 $fontWeight: (
     'regular': 400,
     'semibold': 500,
     'bold': 700,
-   
 );
+
+.linkActive {
+    color: var(--textHeading);
+    transform: translateX(1rem);
+    z-index: 100;
+    color: var(--textHeading) !important;
+    svg {
+        path {
+            fill: var(--textHeading);
+        }
+    }
+    &::after {
+        right: 0rem !important;
+        opacity: 1 !important;
+        z-index: -1;
+    }
+}
+
+.divider {
+    width: 48vw;
+    transform: translateX(-3rem);
+    margin-bottom: 3rem;
+    border-bottom: dashed;
+}
+
+.slideLeft {
+    transition-delay: transform 1s;
+    transform: translateX(0rem) !important;
+}
+.dblock {
+    display: block !important;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}

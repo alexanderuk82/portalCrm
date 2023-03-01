@@ -1,15 +1,30 @@
 import { Outlet } from 'react-router-dom'
 import MenuSide from '../components/MenuSide'
+import { useState, useEffect } from 'react'
 
 function Layout() {
+    const [display, setDisplay] = useState(false)
+    const [slide, setSlide] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSlide(true)
+        }, 1700)
+    }, display)
+
     return (
         <main>
             <aside className="aside">
                 <img src="/public/img/logo.svg" alt="logo" />
-                <button>
+                <button onClick={() => setDisplay(true)}>
                     <img src="/public/img/menu.svg" alt="menu-icon" />
                 </button>
-                <MenuSide />
+                <MenuSide
+                    setDisplay={setDisplay}
+                    display={display}
+                    setSlide={setSlide}
+                    slide={slide}
+                />
             </aside>
 
             <Outlet />

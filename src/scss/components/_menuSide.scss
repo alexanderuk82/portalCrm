@@ -7,6 +7,8 @@
     height: 100%;
     width: 100%;
     background-color: hsla(0, 0%, 12%, 0.404);
+    overflow: hidden;
+    display: none;
 
     &__menuSection {
         background-color: var(--main);
@@ -18,5 +20,80 @@
         color: var(--body);
         @include font-style(menuLinks, semibold, body, capitalize);
         @include position(flex, center, center, column, 100);
+        transform: translateX(60rem);
+        transition: all 0.3s linear;
+        &__nav {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+
+            &__close {
+                position: absolute;
+                top: 30px;
+                left: 2rem;
+            }
+
+            &__list {
+                margin-left: 6rem;
+                text-align: left;
+
+                &__title {
+                    margin-top: 4rem;
+                    margin-bottom: 2rem;
+                    padding-left: 0.8rem;
+                    color: var(--highlight);
+                }
+                &__item {
+                    list-style: none;
+                    position: relative;
+                    z-index: 0;
+                    margin-bottom: 3rem;
+                    &__link {
+                        text-decoration: none;
+                        color: var(--body);
+                        width: 100%;
+                        display: inline-block;
+                        padding: 1rem;
+                        position: relative;
+                        transition: all 0.2s linear;
+                        display: flex;
+                        align-items: center;
+                        & > * {
+                            margin-right: 1rem;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 110%;
+                            background-color: var(--body);
+                            height: 100%;
+                            right: -15rem;
+                            top: 0;
+                            opacity: 0;
+                            border-top-left-radius: 5rem;
+                            border-bottom-left-radius: 5rem;
+                            transition: all 0.2s linear;
+                        }
+
+                        &:hover {
+                            color: var(--textHeading);
+                            transform: translateX(1rem);
+                            z-index: 100;
+                            svg {
+                                path {
+                                    fill: var(--textHeading);
+                                }
+                            }
+                            &::after {
+                                right: 0rem !important;
+                                opacity: 1 !important;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
