@@ -5,12 +5,15 @@
     --main: hsl(248, 93%, 62%);
     --secondary: hsl(149, 50%, 53%);
     --textHeading: hsl(220, 6%, 18%);
+
     --textBody: hsl(214, 5%, 30%);
+    --textBody300: hsla(219, 3%, 42%);
 
     --error: hsl(4, 66%, 44%);
     --shadow: 0px 5px 30px 1px hsla(248, 93%, 62%, 0.04);
 
     --highlight: hsl(149deg 100% 74%);
+    --border: hsl(210, 6%, 93%);
 
     //Main-font
     --font: 'DM Sans', sans-serif;
@@ -61,4 +64,9 @@ $fontWeight: (
 
 .mt-3 {
     margin-top: 3rem;
+}
+
+%Flex {
+    display: flex;
+    align-items: center;
 }

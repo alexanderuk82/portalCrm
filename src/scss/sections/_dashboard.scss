@@ -1,0 +1,49 @@
+@use '../abstract/' as *;
+
+.dashboard {
+    &__header {
+        &__top {
+            @include position(flex, space-between, center, row);
+
+            &__search {
+                border: 1px solid var(--border);
+                border-radius: 50rem;
+                padding: 0.8rem 1rem;
+                box-shadow: var(--shadow);
+                @extend %Flex;
+                &--input {
+                    cursor: pointer;
+                    border: none;
+                    background-color: transparent;
+                    font-family: inherit;
+                    
+                    &:focus {
+                        outline: 0;
+                    }
+                    
+                    &::placeholder {
+                        color: var(--textBody300);
+                    }
+                }
+                
+                &--submit {
+                    cursor: pointer;
+                    @extend %Flex;
+                    background-color: transparent;
+                    border: 0;
+                    
+                    &::focus {
+                        outline: 0;
+                    }
+                }
+            }
+
+            &__right {
+                &__user {
+                    &__profile {
+                    }
+                }
+            }
+        }
+    }
+}

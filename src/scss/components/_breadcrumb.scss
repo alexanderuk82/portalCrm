@@ -1,0 +1,11 @@
+@use '../abstract/' as *;
+.breadcrumb {
+    color: inherit;
+    text-transform: capitalize;
+
+    &__link {
+        text-decoration: none;
+        color: var(--textHeading);
+        font-weight: map-get($fontWeight, bold);
+    }
+}

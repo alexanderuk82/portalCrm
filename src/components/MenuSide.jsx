@@ -3,10 +3,19 @@ import { Link, useLocation } from 'react-router-dom'
 
 function MenuSide({ setDisplay, display, slide, setSlide }) {
     const location = useLocation()
-    
+
+    function handleClose() {
+        setSlide(false)
+
+        setTimeout(() => {
+            setDisplay(false)
+        }, 200)
+    }
 
     return (
-        <section className={display ? 'menuSide dblock' : 'menuSide'}>
+        <section className={display ? 'menuSide dblock' : 'menuSide'}
+            onClick ={()=>handleClose()}
+        >
             <div
                 className={
                     slide
@@ -15,9 +24,10 @@ function MenuSide({ setDisplay, display, slide, setSlide }) {
                 }
             >
                 <nav className="menuSide__menuSection__nav">
-                    <button 
-                    
-                    className="menuSide__menuSection__nav__close">
+                    <button
+                        className="menuSide__menuSection__nav__close"
+                        onClick={() => handleClose()}
+                    >
                         <img src="/public/img/close.svg" alt="close" />
                     </button>
                     <ul className="menuSide__menuSection__nav__list">

@@ -7,10 +7,10 @@ function Layout() {
     const [slide, setSlide] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => {
+        if (display) {
             setSlide(true)
-        }, 1700)
-    }, display)
+        }
+    }, [display])
 
     return (
         <main>
