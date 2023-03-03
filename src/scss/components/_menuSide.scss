@@ -9,7 +9,7 @@
     background-color: hsla(0, 0%, 12%, 0.404);
     overflow: hidden;
     display: none;
-
+    z-index: 100;
     &__menuSection {
         background-color: var(--main);
         height: inherit;

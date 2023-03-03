@@ -1,5 +1,9 @@
 @use '../abstract/variables' as *;
 
+//********************************
+//? Control font styles
+//********************************
+
 @mixin font-style(
     $size: (
         inherit,
@@ -16,6 +20,10 @@
     text-transform: $transform;
 }
 
+//********************************
+//? Positions and directions for elements
+//********************************
+
 @mixin position($style, $content, $align, $direction, $height: (initial)) {
     height: #{$height};
     display: $style;
@@ -23,6 +31,173 @@
     align-items: $align;
     flex-direction: $direction;
 }
+
+//********************************
+//? Style for title boxes
+//********************************
+
+@mixin title {
+    @include font-style(titleBox, semiBold, textHeading, capitalize);
+}
+
+//********************************
+//? Style for box project
+//********************************
+
+@mixin boxProject {
+    @extend %Box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+//********************************
+//? Style for main header top bar section
+//********************************
+
+@mixin header {
+    &__header {
+        &__top {
+            @include position(flex, space-between, center, row);
+
+            &__search {
+                border: 1px solid var(--border);
+                border-radius: 50rem;
+                padding: 0.8rem 1rem;
+                box-shadow: var(--shadow);
+                @extend %Flex;
+                &--input {
+                    cursor: pointer;
+                    border: none;
+                    background-color: transparent;
+                    font-family: inherit;
+
+                    &:focus {
+                        outline: 0;
+                    }
+
+                    &::placeholder {
+                        color: var(--textBody300);
+                    }
+                }
+
+                &--submit {
+                    cursor: pointer;
+                    @extend %Flex;
+                    background-color: transparent;
+                    border: 0;
+
+                    &::focus {
+                        outline: 0;
+                    }
+                }
+            }
+
+            &__right {
+                button {
+                    @include btn(mainAddProject);
+                }
+                &__user {
+                    text-transform: capitalize;
+                    @extend %Flex;
+                    gap: 2rem;
+                    &__profile {
+                        cursor: pointer;
+                        position: relative;
+
+                        &--name {
+                            @include font-style(
+                                menuLinks,
+                                semibold,
+                                null,
+                                capitalize
+                            );
+
+                            @extend %Hide;
+                        }
+
+                        &__dropDownBox {
+                            position: absolute;
+                            width: 17rem;
+                            height: 12.5rem;
+                            left: -11.4rem;
+                            top: 4.5rem;
+                            border: 1px solid var(--border);
+                            box-shadow: var(--shadow);
+                            padding: 1rem;
+                            transform: translateY(0rem);
+                            z-index: 50;
+                            border-radius: 4px;
+                            background-color: #fff;
+
+                            @extend %FlexColumn;
+                            &--title {
+                                border-bottom: 1px solid var(--border);
+                                padding-bottom: 0.8rem;
+                            }
+
+                            &__links {
+                                @extend %FlexColumn;
+                                margin-top: 0.8rem;
+                                gap: 1rem;
+
+                                &--link {
+                                    text-decoration: none;
+                                    color: inherit;
+                                    transition: hover 0.4s ease;
+                                    &:hover {
+                                        color: var(--secondary);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .title {
+        margin-top: 2rem;
+        @include font-style(textXl, bold, textHeading, capitalize);
+    }
+}
+
+//********************************
+//? Button style components
+//********************************
+
+@mixin btn($style: inherit) {
+    background-color: transparent;
+    border: 0;
+    @extend %Flex;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    font-weight: map-get($fontWeight, semibold);
+    font-family: inherit;
+    cursor: pointer;
+    &::focus {
+        outline: 0;
+    }
+    @if $style == mainAddProject {
+        background-color: var(--secondary);
+        padding: 1rem;
+        border-radius: 10rem;
+        box-shadow: var(--shadow);
+        transition: hover 0.2s ease;
+        & > * {
+            margin-right: 0.7rem;
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        @extend %Hide;
+    }
+}
+
+//********************************
+//? Responsive breakpoints
+//********************************
 
 @mixin responsive($breakpoint) {
     @if $breakpoint == 'phone-land' {
@@ -44,11 +219,5 @@
         @media (min-width: 75rem) {
             @content;
         }
-    }
-}
-
-@mixin menuSide {
-    .menuside {
-        background-color: red;
     }
 }

@@ -2,7 +2,8 @@
 .breadcrumb {
     color: inherit;
     text-transform: capitalize;
-
+    margin-bottom: 1.6rem;
+    cursor: pointer;
     &__link {
         text-decoration: none;
         color: var(--textHeading);

@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import MenuSide from '../components/MenuSide'
 import { useState, useEffect } from 'react'
 
+
 function Layout() {
     const [display, setDisplay] = useState(false)
     const [slide, setSlide] = useState(false)

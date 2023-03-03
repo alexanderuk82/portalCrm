@@ -1,13 +1,16 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Breadcrumb({ children }) {
+    const navigate = useNavigate()
     return (
-        
-       <div className="breadcrumb">
-         <p>
-             <a className = "breadcrumb__link" href="/">Page</a> / Dashboard
-         </p>
-       </div>
+        <div className="breadcrumb">
+            <p>
+                <span className="breadcrumb__link" onClick={() => navigate('/')}>
+                    Page
+                </span>{' '}
+                / {children}
+            </p>
+        </div>
     )
 }
 
