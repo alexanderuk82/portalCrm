@@ -4,7 +4,7 @@
     --body: hsl(240, 7%, 97%);
     --main: hsl(248, 93%, 62%);
     --secondary: hsl(149, 50%, 53%);
-    --textHeading: hsl(220, 6%, 18%);
+    --textHeading: #2b2d31;
 
     --textBody: hsl(214, 5%, 30%);
     --textBody300: hsla(219, 3%, 42%);
@@ -14,6 +14,16 @@
 
     --highlight: hsl(149deg 100% 74%);
     --border: hsl(210, 6%, 93%);
+    --separator: hwb(240 67% 33%);
+
+    // Status colours forr events
+
+    --activeBg: hsla(149, 50%, 91%, 1);
+    --priorityBg: hsla(0, 100%, 90%, 1);
+    --doneBg: hsla(202, 100%, 92%, 1);
+    --doneText: hsla(194, 66%, 44%, 1);
+    --progressBg: hsla(47, 100%, 90%, 1);
+    --progressText: hsla(47, 90%, 38%, 1);
 
     //Main-font
     --font: 'DM Sans', sans-serif;
@@ -81,6 +91,8 @@ $fontWeight: (
 %Hide {
     display: none;
 }
+
+
 .hide {
     display: none;
 }

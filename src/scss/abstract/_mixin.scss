@@ -41,13 +41,123 @@
 }
 
 //********************************
+//? Style for events status buttons projects
+//********************************
+
+@mixin status() {
+    .status {
+        text-transform: capitalize;
+        font-weight: map-get($fontWeight, semibold);
+        @extend %Flex;
+        gap: 1.4rem;
+        &:has(.active) > span {
+            background-color: var(--activeBg);
+            color: var(--secondary);
+            @include event;
+        }
+        &:has(.high) > span {
+            background-color: var(--priorityBg);
+            color: var(--error);
+            @include event;
+        }
+        &:has(.done) > span {
+            background-color: var(--doneBg);
+            color: var(--done);
+            @include event;
+        }
+        &:has(.progress) > span {
+            background-color: var(--progressBg);
+            color: var(--progressText);
+            @include event;
+        }
+    }
+}
+
+@mixin event {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    border-radius: 10rem;
+}
+//********************************
 //? Style for box project
 //********************************
 
 @mixin boxProject {
     @extend %Box;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    @extend %Flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &__company {
+        @extend %FlexColumn;
+        padding-right: 1rem;
+        &--name {
+            @include font-style(inherit, semibold, textHeading, capitalize);
+        }
+
+        &__info {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            gap: 0.2rem;
+            align-items: center;
+            margin-top: 1rem;
+            &--img {
+                @extend %FlexColumn;
+                letter-spacing: 0.205em;
+                text-transform: uppercase;
+                font-size: 1rem;
+                img {
+                    margin-left: -1rem;
+                }
+            }
+
+            &--text {
+                p {
+                    font-weight: map-get($fontWeight, semibold);
+                    text-transform: capitalize;
+                    font-size: 1.3rem;
+                }
+                @extend %FlexColumn;
+            }
+        }
+    }
+    &__events {
+        font-weight: map-get($fontWeight, semibold);
+        @include status;
+        @extend %FlexColumn;
+        gap: 1rem;
+        margin-top: 2rem;
+        @include responsive(phone) {
+            margin-top: 0;
+        }
+    }
+
+    &__action {
+        @extend %Flex;
+        margin-top: 1rem;
+        gap: 1rem;
+        @include responsive(tablet) {
+            margin-top: 0;
+        }
+
+        &__assets {
+            @extend %FlexColumn;
+            @include status;
+            gap: 1rem;
+            .status:has(p) {
+                font-size: 1.6rem;
+                font-weight: map-get($fontWeight, semibold);
+            }
+        }
+
+        &--btn {
+            @extend %FlexColumn;
+            align-items: center;
+            gap: 1.2rem;
+            @include btnAction;
+        }
+    }
 }
 
 //********************************
@@ -162,6 +272,36 @@
 }
 
 //********************************
+//? Button style Actions(edit/remove)
+
+@mixin btnAction {
+    &:has(.btns) > .btnEdit {
+        color: var(--secondary);
+    }
+    &:has(.btns) > .btnRemove {
+        color: var(--error);
+    }
+    .btns {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        text-transform: capitalize;
+        @extend %Flex;
+        align-items: flex-end;
+
+        img {
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+//********************************
+
+//********************************
 //? Button style components
 //********************************
 
@@ -200,6 +340,11 @@
 //********************************
 
 @mixin responsive($breakpoint) {
+    @if $breakpoint == 'phone' {
+        @media (min-width: 26.06rem) {
+            @content;
+        }
+    }
     @if $breakpoint == 'phone-land' {
         @media (min-width: 31.25rem) {
             @content;

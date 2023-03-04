@@ -20,3 +20,21 @@ body {
 .container {
     padding: 2.5rem;
 }
+
+.separator {
+    border-left: 2px dashed var(--separator);
+    width: 2px;
+    height: 8rem;
+    display: none;
+
+    &--1 {
+        @include responsive(phone) {
+            display: block;
+        }
+    }
+    &--2 {
+        @include responsive(tablet) {
+            display: block;
+        }
+    }
+}
