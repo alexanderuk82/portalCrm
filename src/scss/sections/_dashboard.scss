@@ -84,6 +84,8 @@
 
             &__content {
                 margin: 2rem 0;
+                @extend %FlexColumn;
+                gap: 2rem;
                 &__item {
                     @include boxProject;
                 }

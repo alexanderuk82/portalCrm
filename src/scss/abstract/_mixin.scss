@@ -146,7 +146,7 @@
             @include status;
             gap: 1rem;
             .status:has(p) {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 font-weight: map-get($fontWeight, semibold);
             }
         }

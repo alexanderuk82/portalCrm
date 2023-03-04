@@ -93,6 +93,7 @@ function Dashboard() {
                         </div>
                         <div className="dashboard__container__project__content">
                             <BoxProject />                    
+                            <BoxProject />                    
                         </div>
                     </div>
                     <div className="dashboard__container__meeting box">

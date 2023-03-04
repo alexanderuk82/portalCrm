@@ -22,11 +22,11 @@ function BoxProject() {
             <div className="dashboard__container__project__content__item__events">
                 <div className="status">
                     <p>Status</p>
-                    <span className="active">Active</span>
+                    <span className="high">cancelled</span>
                 </div>
                 <div className="status">
                     <p>priority</p>
-                    <span className="high">high</span>
+                    <span className="progress">medium</span>
                 </div>
                 <div className="status">
                     <p>payment</p>
@@ -38,8 +38,8 @@ function BoxProject() {
                 <div className="dashboard__container__project__content__item__action__assets">
                     <div className="status">
                         <p>assets and info</p>
-                        <span className="progress">progress</span>
-                    </div> 
+                        <span className="done">received</span>
+                    </div>
                     <p className="dashboard__container__project__content__item__action__assets--txt">
                         Before to start this project I will need all the images
                         and text.
