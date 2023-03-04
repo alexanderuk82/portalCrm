@@ -4,7 +4,6 @@ import BoxProject from '../components/BoxProject'
 import TopHeader from '../components/TopHeader'
 import { weatherData } from '../data/weather'
 
-
 export function loader() {
     const dataWeather = weatherData()
     return dataWeather
@@ -13,6 +12,7 @@ export function loader() {
 function Dashboard() {
     const [showBox, setShowBox] = useState(false)
     const data = useLoaderData()
+    console.log(data)
 
     const info = {
         city: data.location.name,
@@ -92,8 +92,8 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="dashboard__container__project__content">
-                            <BoxProject />                    
-                            <BoxProject />                    
+                            <BoxProject />
+                            <BoxProject />
                         </div>
                     </div>
                     <div className="dashboard__container__meeting box">

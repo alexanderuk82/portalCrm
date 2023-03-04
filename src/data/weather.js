@@ -1,4 +1,3 @@
-
 //getting API data for weather
 
 export async function weatherData() {
