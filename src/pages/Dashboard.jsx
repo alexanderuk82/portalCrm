@@ -6,7 +6,7 @@ import { weatherData } from '../data/weather'
 
 export function loader() {
     const dataWeather = weatherData()
-    return dataWeather
+    return dataWeather 
 }
 
 function Dashboard() {
