@@ -109,6 +109,11 @@ $fontWeight: (
     transition: all 0.3s ease;
 }
 
+.lineThrough {
+    text-decoration-line: line-through;
+    color: hsl(223, 4%, 65%);
+}
+
 %Box {
     background-color: #fff;
     padding: 1.8rem;

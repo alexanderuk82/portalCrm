@@ -93,9 +93,98 @@
         }
         &__meeting {
             @extend %Box;
+            &__top {
+                @extend %Flex;
+                justify-content: space-between;
+                padding-bottom: 1rem;
+                border-bottom: 2px solid var(--border);
+
+                &--title {
+                    @include title;
+                }
+
+                &--add {
+                    @include btn;
+                }
+            }
+            &__content {
+                margin: 1.7rem 0;
+                @extend %FlexColumn;
+                gap: 1rem;
+                &__item {
+                    @extend %Flex;
+                    justify-content: space-between;
+                    padding-bottom: 1.4rem;
+                    border-bottom: 2px solid var(--border);
+                    &__name {
+                        @extend %Flex;
+                        gap: 0.4rem;
+                        &__text {
+                            &--company {
+                                font-weight: 500;
+                                text-transform: capitalize;
+                            }
+
+                            &--user {
+                                font-size: 1rem;
+                                letter-spacing: 0.205em;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+
+                    &__time {
+                        @extend %FlexColumn;
+                        gap: 0.6rem;
+                        & > * {
+                            @extend %Flex;
+                            gap: 0.5rem;
+                            font-weight: 500;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
         }
         &__task {
             @extend %Box;
+            &__top {
+                @extend %Flex;
+                justify-content: space-between;
+                padding-bottom: 1rem;
+                border-bottom: 2px solid var(--border);
+
+                &--title {
+                    @include title;
+                }
+
+                &--add {
+                    @include btn;
+                }
+            }
+
+            &__content {
+                &__item {
+                    margin: 2rem 0;
+                    @extend %Flex;
+                    justify-content: space-between;
+                    padding-bottom: 1.4rem;
+    border-bottom: 2px solid var(--border);
+                    &__text {
+                        @extend %Flex;
+                        gap: 1rem;
+                        cursor: pointer;
+                    }
+
+                    &__action {
+                        @extend %Flex;
+                        gap: 1.2rem;
+                        & > * {
+                            @include btn;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,0 +1,18 @@
+@use '../abstract' as *;
+
+.footer {
+    background: hsl(220, 6%, 18%);
+    padding: 2rem;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+    @extend %FlexColumn;
+    gap: 1rem;
+
+   
+        p:nth-of-type(2) {
+            color: var(--secondary);
+            font-weight: map-get($fontWeight, semibold)
+        }
+    
+}

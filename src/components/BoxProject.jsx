@@ -1,51 +1,22 @@
-function BoxProject() {
+function BoxProject({ project }) {
+    const {
+        nameProject,
+        nameClient,
+        chargeClient,
+        projectType,
+        statusProject,
+        priority,
+        payment,
+        infoAssets,
+        infoStatus,
+        id,
+    } = project
     return (
         <div className="dashboard__container__project__content__item">
-            <div className="dashboard__container__project__content__item__company">
-                <p className="dashboard__container__project__content__item__company--name">
-                    Project Name
-                </p>
+            <div className="dashboard__container__project__content__item__menuDots">
+                <img src="public/img/3Dots.svg" alt="menuaction" />
 
-                <div className="dashboard__container__project__content__item__company__info">
-                    <div className="dashboard__container__project__content__item__company__info--img">
-                        <img src="public/img/iconUxUI.svg" alt="iconservice" />
-                        <small>ux/ui</small>
-                    </div>
-                    <div className="dashboard__container__project__content__item__company__info--text">
-                        <p>Client Name</p>
-                        <small>Charge</small>
-                    </div>
-                </div>
-            </div>
-
-            <div className="separator separator--1"></div>
-            <div className="dashboard__container__project__content__item__events">
-                <div className="status">
-                    <p>Status</p>
-                    <span className="high">cancelled</span>
-                </div>
-                <div className="status">
-                    <p>priority</p>
-                    <span className="progress">medium</span>
-                </div>
-                <div className="status">
-                    <p>payment</p>
-                    <span className="progress">progress</span>
-                </div>
-            </div>
-            <div className="separator separator--2"></div>
-            <div className="dashboard__container__project__content__item__action">
-                <div className="dashboard__container__project__content__item__action__assets">
-                    <div className="status">
-                        <p>assets and info</p>
-                        <span className="done">received</span>
-                    </div>
-                    <p className="dashboard__container__project__content__item__action__assets--txt">
-                        Before to start this project I will need all the images
-                        and text.
-                    </p>
-                </div>
-                <div className="dashboard__container__project__content__item__action--btn">
+                <div className="dashboard__container__project__content__item__menuDots__menu">
                     <button className="btns btnEdit">
                         <img src="public/img/edit.svg" alt="edit" />
                         edit
@@ -54,6 +25,57 @@ function BoxProject() {
                         <img src="public/img/delete.svg" alt="remove" />
                         remove
                     </button>
+                    <button className="btns btnLaunch">
+                        <img src="public/img/launch.svg" alt="launch" />
+                        launch
+                    </button>
+                </div>
+            </div>
+            <div className="dashboard__container__project__content__item__company">
+                <p className="dashboard__container__project__content__item__company--name">
+                    {nameProject}
+                </p>
+
+                <div className="dashboard__container__project__content__item__company__info">
+                    <div className="dashboard__container__project__content__item__company__info--img">
+                        <img
+                            src={`public/img/${projectType}.svg`}
+                            alt="iconservice"
+                        />
+                        <small>{projectType}</small>
+                    </div>
+                    <div className="dashboard__container__project__content__item__company__info--text">
+                        <p>{nameClient}</p>
+                        <small>{chargeClient}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div className="separator separator--1"></div>
+            <div className="dashboard__container__project__content__item__events">
+                <div className="status">
+                    <p>Status</p>
+                    <span className={`${statusProject}`}>{statusProject}</span>
+                </div>
+                <div className="status">
+                    <p>priority</p>
+                    <span className={`${priority}`}>{priority}</span>
+                </div>
+                <div className="status">
+                    <p>payment</p>
+                    <span className={`${payment}`}>{payment}</span>
+                </div>
+            </div>
+            <div className="separator separator--2"></div>
+            <div className="dashboard__container__project__content__item__action">
+                <div className="dashboard__container__project__content__item__action__assets">
+                    <div className="status">
+                        <p>assets and info</p>
+                        <span className={`${infoStatus}`}>{infoStatus}</span>
+                    </div>
+                    <p className="dashboard__container__project__content__item__action__assets--txt">
+                        {infoAssets}
+                    </p>
                 </div>
             </div>
         </div>

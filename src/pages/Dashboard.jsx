@@ -3,22 +3,34 @@ import { useLoaderData } from 'react-router-dom'
 import BoxProject from '../components/BoxProject'
 import TopHeader from '../components/TopHeader'
 import { weatherData } from '../data/weather'
+import { getProjects } from '../data/projects'
+import Meeting from '../components/Meeting'
+import Task from '../components/Task'
 
-export function loader() {
-    const dataWeather = weatherData()
-    return dataWeather 
+export async function loader() {
+    const dataWeather = await weatherData()
+    const projects = await getProjects()
+    return { dataWeather, projects }
 }
 
 function Dashboard() {
     const [showBox, setShowBox] = useState(false)
-    const data = useLoaderData()
-    console.log(data)
+    const { dataWeather, projects } = useLoaderData()
+    const [task, setTask] = useState(false)
 
     const info = {
-        city: data.location.name,
-        temp: data.current.temp_c,
-        icon: data.current.condition.icon,
-        condition: data.current.condition.text,
+        city: dataWeather.location.name,
+        temp: dataWeather.current.temp_c,
+        icon: dataWeather.current.condition.icon,
+        condition: dataWeather.current.condition.text,
+    }
+
+    function handleTask() {
+        setTask(true)
+
+        if (task) {
+            setTask(false)
+        }
     }
 
     return (
@@ -92,15 +104,56 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="dashboard__container__project__content">
-                            <BoxProject />
-                            <BoxProject />
+                            {projects.map((project) => {
+                                return (
+                                    <BoxProject
+                                        key={project.id}
+                                        project={project}
+                                    />
+                                )
+                            })}
                         </div>
                     </div>
                     <div className="dashboard__container__meeting box">
-                        meeting box
+                        <div className="dashboard__container__meeting__top">
+                            <h3 className="dashboard__container__meeting__top--title">
+                                next coming meetings
+                            </h3>
+                            <button className="dashboard__container__meeting__top--add">
+                                <img
+                                    src="public/img/add.svg"
+                                    alt="add meeting"
+                                />
+                            </button>
+                        </div>
+                        <div className="dashboard__container__meeting__content">
+                            <Meeting />
+                            <Meeting />
+                            <Meeting />
+                        </div>
                     </div>
                     <div className="dashboard__container__task box">
-                        task box
+                        <div className="dashboard__container__task__top">
+                            <h3 className="dashboard__container__task__top--title">
+                                create new task
+                            </h3>
+                            <button className="dashboard__container__task__top--add">
+                                <img
+                                    src="public/img/add.svg"
+                                    alt="add meeting"
+                                />
+                            </button>
+                        </div>
+                        <div className="dashboard__container__task__content">
+                            <Task
+                                task={task}
+                                setTask={setTask}
+                                handleTask={handleTask}
+                            />
+                           <Task />
+                           <Task /> 
+                           <Task /> 
+                        </div>
                     </div>
                 </div>
             </div>

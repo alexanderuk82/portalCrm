@@ -60,12 +60,27 @@
             color: var(--error);
             @include event;
         }
+        &:has(.cancelled) > span {
+            background-color: var(--priorityBg);
+            color: var(--error);
+            @include event;
+        }
         &:has(.done) > span {
             background-color: var(--doneBg);
             color: var(--done);
             @include event;
         }
+        &:has(.low) > span {
+            background-color: var(--doneBg);
+            color: var(--done);
+            @include event;
+        }
         &:has(.progress) > span {
+            background-color: var(--progressBg);
+            color: var(--progressText);
+            @include event;
+        }
+        &:has(.medium) > span {
             background-color: var(--progressBg);
             color: var(--progressText);
             @include event;
@@ -89,6 +104,33 @@
     @extend %Flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    &__menuDots {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        cursor: pointer;
+        height: 100%;
+
+        &__menu {
+            position: absolute;
+            top: -2rem;
+            right: -10rem;
+            background-color: hsl(0, 0%, 96%);
+            height: 104%;
+            width: 6rem;
+            box-shadow: 3px 0px 6px 2px rgba(0, 0, 0, 0.22);
+            transition: all 0.2s linear;
+            @include position(flex, space-evenly, center, column, null);
+
+            @include btnAction();
+        }
+    }
+
+    &__menuDots:hover &__menuDots__menu {
+        right: -2rem;
+    }
     &__company {
         @extend %FlexColumn;
         padding-right: 1rem;
@@ -149,13 +191,6 @@
                 font-size: 1.5rem;
                 font-weight: map-get($fontWeight, semibold);
             }
-        }
-
-        &--btn {
-            @extend %FlexColumn;
-            align-items: center;
-            gap: 1.2rem;
-            @include btnAction;
         }
     }
 }
@@ -281,13 +316,17 @@
     &:has(.btns) > .btnRemove {
         color: var(--error);
     }
+    &:has(.btns) > .btnLaunch {
+        color: var(--main);
+    }
     .btns {
         background-color: transparent;
         border: 0;
         cursor: pointer;
         text-transform: capitalize;
-        @extend %Flex;
-        align-items: flex-end;
+        @extend %FlexColumn;
+        align-items: center;
+        font-size: 1.2rem;
 
         img {
             width: 1.8rem;
@@ -341,7 +380,7 @@
 
 @mixin responsive($breakpoint) {
     @if $breakpoint == 'phone' {
-        @media (min-width: 26.06rem) {
+        @media (min-width: 24.625rem) {
             @content;
         }
     }

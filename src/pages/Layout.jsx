@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import MenuSide from '../components/MenuSide'
 import { useState, useEffect } from 'react'
-
+import Footer from './Footer'
 
 function Layout() {
     const [display, setDisplay] = useState(false)
@@ -29,6 +29,7 @@ function Layout() {
             </aside>
 
             <Outlet />
+            <Footer />
         </main>
     )
 }
