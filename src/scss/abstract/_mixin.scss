@@ -352,6 +352,7 @@
     font-size: 1.8rem;
     font-weight: map-get($fontWeight, semibold);
     font-family: inherit;
+    
     cursor: pointer;
     &::focus {
         outline: 0;
@@ -371,6 +372,21 @@
         }
 
         @extend %Hide;
+    }
+    @if $style == submit {
+        background-color: var(--secondary);
+        padding: 1.6rem;
+        border-radius: 10rem;
+        box-shadow: var(--shadow);
+        transition: hover 0.2s ease;
+        & > * {
+            margin-right: 0.7rem;
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+    
     }
 }
 

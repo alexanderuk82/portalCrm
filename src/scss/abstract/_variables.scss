@@ -35,6 +35,8 @@ $fontSize: (
     'textXl': 3rem,
     'textLg': 2rem,
     'titleBox': 1.7rem,
+    'titleForm': 2.3rem,
+    'label': 1.3rem,
 );
 
 $fontWeight: (
@@ -92,7 +94,6 @@ $fontWeight: (
     display: none;
 }
 
-
 .hide {
     display: none;
 }
@@ -113,6 +114,8 @@ $fontWeight: (
     text-decoration-line: line-through;
     color: hsl(223, 4%, 65%);
 }
+
+
 
 %Box {
     background-color: #fff;

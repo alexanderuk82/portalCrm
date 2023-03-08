@@ -4,15 +4,19 @@
     background-color: var(--main);
     color: var(--body);
     @include position(flex, space-between, center, row);
-    ;
     padding: 1rem 2.5rem;
-    button{
+    button {
         background-color: transparent;
         border: none;
         cursor: pointer;
-        &:focus{
+        &:focus {
             outline: none;
-            
         }
     }
+}
+.btnFloating {
+    @include btn;
+    position: fixed;
+    bottom: 0rem;
+    right: 1rem;
 }

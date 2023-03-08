@@ -1,0 +1,121 @@
+@use '../abstract/' as *;
+
+.popup {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    background: rgba(44, 46, 50, 0.76);
+    backdrop-filter: blur(4.5px);
+    @include position(flex, center, center, column);
+    padding: 2rem;
+    .addProject {
+        padding: 3rem 1.5rem;
+        background-color: #fff;
+        border-radius: 1.3rem;
+        height: 62rem;
+        overflow-y: overlay;
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+        &__title {
+            @extend %Flex;
+            gap: 1rem;
+            color: var(--textHeading);
+            &--txt h2 {
+                @include font-style(titleForm, semibold, inherit, capitalize);
+            }
+        }
+
+        &__form {
+            margin-top: 4rem;
+            @extend %FlexColumn;
+            gap: 2rem;
+
+            fieldset {
+                border: 0;
+                @extend %FlexColumn;
+                gap: 2.6rem;
+            }
+
+            &__input,
+            &__input__textarea {
+                @extend %FlexColumn;
+                background-color: #fff;
+                box-shadow: 0px 5px 30px 1px rgba(93, 68, 248, 0.04);
+                border-radius: 4px;
+                border: 1px solid var(--border);
+                position: relative;
+                .label {
+                    position: absolute;
+                    background-color: #fff;
+                    top: -1rem;
+                    left: 2rem;
+                    @include font-style(label, semibold, inherit, capitalize);
+                }
+
+                input {
+                    border: 0;
+                    padding: 1.6rem 1.9rem;
+                    font-family: inherit;
+                    font-size: inherit;
+                }
+
+                &__textarea {
+                    margin-top: 1rem;
+                    height: 10.5rem;
+                    resize: none;
+
+                    textarea {
+                        border: 0;
+                        height: 10.5rem;
+                        resize: none;
+                        height: 100%;
+                        padding: 1rem 1.6rem;
+                        font-family: inherit;
+                    }
+                }
+            }
+            &__option {
+                @extend %FlexColumn;
+
+                &__label {
+                    @include font-style(label, semibold, inherit, capitalize);
+                    margin-bottom: 1rem;
+                }
+
+                &__item {
+                    @extend %Flex;
+                    gap: 2rem;
+                    &__radio {
+                        @extend %Flex;
+                        gap: 0.3rem;
+                        input {
+                            accent-color: var(--secondary);
+                            border: none;
+                            height: 2rem;
+                            width: 2rem;
+                            cursor: pointer;
+                        }
+                        label {
+                            cursor: pointer;
+                            @include font-style(
+                                label,
+                                semibold,
+                                inherit,
+                                capitalize
+                            );
+                        }
+                    }
+                }
+            }
+
+            .btnSubmit {
+                margin-top: 2rem;
+                @extend %Flex;
+                justify-content: center;
+                @include btn(submit);
+            }
+        }
+    }
+}
