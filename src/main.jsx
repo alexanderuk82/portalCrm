@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import FormProject,{action as newProject} from './components/FormProject'
 import Dashboard, { loader as dashboardLoader } from './pages/Dashboard'
 import Layout from './pages/Layout'
-import NewProject from './pages/NewProject'
+
+// import NewProject from './pages/NewProject'
 import Projects from './pages/Projects'
 
 const router = createBrowserRouter([
@@ -15,7 +17,6 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Dashboard />,
                 loader: dashboardLoader,
-              
             },
             {
                 path: '/projects',
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/projects/new',
-                element: <NewProject />,
+                element: <FormProject />,
+                action: newProject,
             },
         ],
     },

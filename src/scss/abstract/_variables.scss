@@ -15,7 +15,7 @@
     --highlight: hsl(149deg 100% 74%);
     --border: hsl(210, 6%, 93%);
     --separator: hwb(240 67% 33%);
-
+    --white: hsl(0, 0%, 100%);
     // Status colours forr events
 
     --activeBg: hsla(149, 50%, 91%, 1);
@@ -37,6 +37,7 @@ $fontSize: (
     'titleBox': 1.7rem,
     'titleForm': 2.3rem,
     'label': 1.3rem,
+    'small': 1rem,
 );
 
 $fontWeight: (
@@ -115,14 +116,16 @@ $fontWeight: (
     color: hsl(223, 4%, 65%);
 }
 
-
-
 %Box {
     background-color: #fff;
     padding: 1.8rem;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     border-radius: 1.2rem;
+}
+
+.shake {
+    animation:shaking 0.5s linear !important;
 }
 
 //Animation bouncing for boxes
@@ -135,4 +138,23 @@ $fontWeight: (
     50% {
         transform: translateY(1rem);
     }
+}
+
+@keyframes shaking {
+    0%{
+        transform: translateX(-2rem);
+    }
+
+    25% {
+        transform: translateX(2px);
+    }
+
+    50%{
+        transform: translateX(-2rem);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+  
 }

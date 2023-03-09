@@ -8,8 +8,25 @@
     backdrop-filter: blur(4.5px);
     @include position(flex, center, center, column);
     padding: 2rem;
+    z-index: 10;
+    &__close {
+        @extend %Flex;
+        gap: 0.5rem;
+        position: absolute;
+        top: 5rem;
+        left: 2rem;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        &:focus {
+            outline: 0;
+        }
+        span {
+            @include font-style(small, normal, white, uppercase);
+            letter-spacing: 0.205em;
+        }
+    }
     .addProject {
-        padding: 3rem 1.5rem;
         background-color: #fff;
         border-radius: 1.3rem;
         height: 62rem;
@@ -22,13 +39,21 @@
             @extend %Flex;
             gap: 1rem;
             color: var(--textHeading);
+            position: sticky;
+            z-index: 1000;
+            background: var(--secondary);
+            top: 0;
+            width: 100%;
+            height: 8rem;
+            padding: 2rem 1.5rem;
+
             &--txt h2 {
                 @include font-style(titleForm, semibold, inherit, capitalize);
             }
         }
 
         &__form {
-            margin-top: 4rem;
+            padding: 3rem 1.5rem;
             @extend %FlexColumn;
             gap: 2rem;
 
