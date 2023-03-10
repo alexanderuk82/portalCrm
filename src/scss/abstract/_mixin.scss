@@ -80,6 +80,11 @@
             color: var(--progressText);
             @include event;
         }
+        &:has(.paused) > span {
+            background-color: var(--progressBg);
+            color: var(--progressText);
+            @include event;
+        }
         &:has(.medium) > span {
             background-color: var(--progressBg);
             color: var(--progressText);

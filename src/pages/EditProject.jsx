@@ -1,38 +1,26 @@
-import { Form, redirect, useActionData, useNavigate } from 'react-router-dom'
-import { addProject } from '../data/projects'
-import FormFields from './FormFields' 
+import { useLoaderData, useNavigate, Form, redirect } from 'react-router-dom'
+import FormFields from '../components/FormFields'
+import Message from '../components/Message'
 
-import Message from './Message'
+import { getId } from '../data/projects'
 
-export async function action({ request }) {
-    const formData = await request.formData()
-    const data = Object.fromEntries(formData)
-    
-    //Validation of field form
-
-    const error = []
-    if (Object.values(data).includes('')) {
-        error.push('⛔ All the fields are required. ⛔')
-    }
-
-    if (Object.keys(error).length) {
-        return error
-    }
-    await addProject(data)
-    return redirect('/')
+export async function loader({ params }) {
+    const project = await getId(params.projectId)
+    return project
 }
 
-function FormProject({ project }) {
+function EditProject() {
     const navigate = useNavigate()
-    const message = useActionData()
+    const project = useLoaderData() 
+    console.log(project)
     return (
         <div className="popup">
-            {message?.length &&
+            {/* {message?.length &&
                 message.map((text, index) => (
                     <Message key={index} type="error">
                         {text}
                     </Message>
-                ))}
+                ))} */}
 
             <button className="popup__close" onClick={() => navigate('/')}>
                 <img src="/public/img/close.svg" alt="close popup" />
@@ -40,9 +28,10 @@ function FormProject({ project }) {
             </button>
 
             <div
-                className={`${
-                    message?.length ? 'addProject shake' : 'addProject'
-                }`}
+                className="addProject"
+                // className={`${
+                //     message?.length ? 'addProject shake' : 'addProject'
+                // }`}
             >
                 <div className="addProject__title">
                     <img src="public/img/addWork.svg" alt="" />
@@ -53,7 +42,7 @@ function FormProject({ project }) {
                 </div>
 
                 <Form className="addProject__form" method="post" noValidate>
-                    <FormFields />
+                    <FormFields project={project} />
                     <input
                         className="btnSubmit"
                         type="submit"
@@ -65,4 +54,4 @@ function FormProject({ project }) {
     )
 }
 
-export default FormProject
+export default EditProject

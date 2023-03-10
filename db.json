@@ -1,28 +1,64 @@
 {
-    "projects": [
-        {
-            "nameProject": "Frankopedia",
-            "nameClient": "Magdalena",
-            "chargeClient": "Owner",
-            "projectType": "uxui",
-            "statusProject": "active",
-            "priority": "medium",
-            "payment": "done",
-            "infoAssets": "This is project is currently working with all documentation done",
-            "infoStatus": "done",
-            "id": 1
-        },
-        {
-            "nameProject": "Digiin",
-            "nameClient": "Jason P",
-            "chargeClient": "CEO",
-            "projectType": "coding",
-            "statusProject": "active",
-            "priority": "high",
-            "payment": "done",
-            "infoAssets": "This is project is currently working with all documentation done",
-            "infoStatus": "progress",
-            "id": 2
-        }
-    ]
+  "projects": [
+    {
+      "nameProject": "Frankopedia",
+      "nameClient": "Magdalena",
+      "chargeClient": "Owner",
+      "projectType": "uxui",
+      "statusProject": "active",
+      "priority": "medium",
+      "payment": "done",
+      "infoAssets": "This is project is currently working with all documentation done",
+      "infoStatus": "done",
+      "id": 1
+    },
+    {
+      "nameProject": "Digiin",
+      "nameClient": "Jason P",
+      "chargeClient": "CEO",
+      "projectType": "coding",
+      "statusProject": "active",
+      "priority": "high",
+      "payment": "done",
+      "infoAssets": "This is project is currently working with all documentation done",
+      "infoStatus": "progress",
+      "id": 2
+    },
+    {
+      "nameProject": "Website",
+      "nameClient": "Alexander B",
+      "chargeClient": "CEO",
+      "projectType": "coding",
+      "statusProject": "active",
+      "priority": "medium",
+      "payment": "progress",
+      "infoStatus": "progress",
+      "infoAssets": "Es undemo de sitio web",
+      "id": 3
+    },
+    {
+      "nameProject": "Inventevo",
+      "nameClient": "Francisco",
+      "chargeClient": "Supervisor",
+      "projectType": "uxui",
+      "statusProject": "paused",
+      "priority": "medium",
+      "payment": "done",
+      "infoStatus": "done",
+      "infoAssets": "Es una empresa digital que crea archivos PDF",
+      "id": 4
+    },
+    {
+      "nameProject": "Website",
+      "nameClient": "Hannah S",
+      "chargeClient": "CEO",
+      "projectType": "coding",
+      "statusProject": "active",
+      "priority": "high",
+      "payment": "done",
+      "infoStatus": "progress",
+      "infoAssets": "This project is on the way to get all the information",
+      "id": 5
+    }
+  ]
 }

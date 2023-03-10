@@ -18,6 +18,8 @@ function Dashboard() {
     const { dataWeather, projects } = useLoaderData()
     const [task, setTask] = useState(false)
 
+    console.log(projects)
+
     const info = {
         city: dataWeather.location.name,
         temp: dataWeather.current.temp_c,

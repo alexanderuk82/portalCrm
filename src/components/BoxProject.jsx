@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 function BoxProject({ project }) {
     const {
         nameProject,
@@ -11,13 +13,18 @@ function BoxProject({ project }) {
         infoStatus,
         id,
     } = project
+
+    const navigate = useNavigate()
     return (
         <div className="dashboard__container__project__content__item">
             <div className="dashboard__container__project__content__item__menuDots">
                 <img src="public/img/3Dots.svg" alt="menuaction" />
 
                 <div className="dashboard__container__project__content__item__menuDots__menu">
-                    <button className="btns btnEdit">
+                    <button
+                        className="btns btnEdit"
+                        onClick={() => navigate(`/projects/${id}/edit`)}
+                    >
                         <img src="public/img/edit.svg" alt="edit" />
                         edit
                     </button>
