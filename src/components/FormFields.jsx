@@ -51,6 +51,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="projectType"
+                                value="uxui"
                                 defaultChecked={project?.projectType === 'uxui'}
                                 id="uxui"
                             />
@@ -60,6 +61,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="projectType"
+                                value="coding"
                                 defaultChecked={
                                     project?.projectType === 'coding'
                                 }
@@ -78,6 +80,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="statusProject"
+                                value="active"
                                 defaultChecked={
                                     project?.statusProject === 'active'
                                 }
@@ -89,6 +92,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="statusProject"
+                                value="cancelled"
                                 defaultChecked={
                                     project?.statusProject === 'cancelled'
                                 }
@@ -100,6 +104,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="statusProject"
+                                value="paused"
                                 defaultChecked={
                                     project?.statusProject === 'paused'
                                 }
@@ -118,6 +123,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="priority"
+                                value="low"
                                 defaultChecked={project?.priority === 'low'}
                                 id="low"
                             />
@@ -127,6 +133,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="priority"
+                                value="medium"
                                 defaultChecked={project?.priority === 'medium'}
                                 id="medium"
                             />
@@ -136,6 +143,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="priority"
+                                value="high"
                                 defaultChecked={project?.priority === 'high'}
                                 id="high"
                             />
@@ -152,6 +160,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="payment"
+                                value="done"
                                 defaultChecked={project?.payment === 'done'}
                                 id="done-payment"
                             />
@@ -161,6 +170,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="payment"
+                                value="progress"
                                 defaultChecked={project?.payment === 'progress'}
                                 id="progress-payment"
                             />
@@ -177,6 +187,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="infoStatus"
+                                value="done"
                                 defaultChecked={project?.infoStatus === 'done'}
                                 id="done"
                             />
@@ -186,6 +197,7 @@ function FormFields({ project }) {
                             <input
                                 type="radio"
                                 name="infoStatus"
+                                value="progress"
                                 defaultChecked={
                                     project?.infoStatus === 'progress'
                                 }

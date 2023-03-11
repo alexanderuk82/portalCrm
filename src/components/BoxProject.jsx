@@ -1,4 +1,11 @@
-import { useNavigate } from 'react-router-dom'
+import { Form, redirect, useNavigate } from 'react-router-dom'
+import { eliminarData } from '../../../../crm/src/data/clientes'
+import { removeProject } from '../data/projects'
+
+export async function action({ params }) {
+    removeProject(params.projectId)
+    return redirect('/')
+}
 
 function BoxProject({ project }) {
     const {
@@ -28,10 +35,24 @@ function BoxProject({ project }) {
                         <img src="public/img/edit.svg" alt="edit" />
                         edit
                     </button>
-                    <button className="btns btnRemove">
-                        <img src="public/img/delete.svg" alt="remove" />
-                        remove
-                    </button>
+                    <Form
+                        onSubmit={(e) => {
+                            if (
+                                !confirm(
+                                    'Are you sure you want to delete this project'
+                                )
+                            ) {
+                                e.preventDefault()
+                            }
+                        }}
+                        method="post"
+                        action={`/projects/${id}/remove`}
+                    >
+                        <button className="btns btnRemove" type="submit">
+                            <img src="public/img/delete.svg" alt="remove" />
+                            remove
+                        </button>
+                    </Form>
                     <button className="btns btnLaunch">
                         <img src="public/img/launch.svg" alt="launch" />
                         launch

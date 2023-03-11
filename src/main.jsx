@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import FormProject, { action as newProject } from './components/FormProject'
 import Dashboard, { loader as dashboardLoader } from './pages/Dashboard'
-import EditProject, { loader as editProject } from './pages/EditProject'
+import EditProject, {
+    loader as editProject,
+    action as editedProject,
+} from './pages/EditProject'
 import Layout from './pages/Layout'
 import Projects from './pages/Projects'
+import { action as deleteProject } from './components/BoxProject'
 
 const router = createBrowserRouter([
     {
@@ -30,6 +34,11 @@ const router = createBrowserRouter([
                 path: '/projects/:projectId/edit',
                 element: <EditProject />,
                 loader: editProject,
+                action: editedProject,
+            },
+            {
+                path: '/projects/:projectId/remove',
+                action: deleteProject,
             },
         ],
     },
